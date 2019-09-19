@@ -1,0 +1,12 @@
+.todo.selected {
+    text-decoration: line-through;
+}
+
+.removeToDo {
+    padding-left: 10px;
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+}

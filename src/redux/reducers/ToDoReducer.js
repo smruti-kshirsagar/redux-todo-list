@@ -1,6 +1,6 @@
 
 let initialState = {
-    todos: [{ id: 1, text: "To Do 1"}]
+    todos: []
 }
 
 function ToDoReducer(state = initialState, action) {
@@ -10,12 +10,27 @@ function ToDoReducer(state = initialState, action) {
                 ...state,
                 todos : [...state.todos, action.payload]
             }
-            state = state
+            return state
+        case "TOGGLE-TODO":
+            let _todos = state.todos.map((item)=> {
+                if(item.id === action.payload) {
+                    item.completed = !item.completed
+                }
+                return item;
+            })
+            state = {
+                ...state,
+                todos : _todos
+            }
+        case "DELETE-TODO":
+            state = {
+                ...state,
+                todos : [...state.todos]
+            }
+            state.todos.splice(action.payload, 1)
             break;
-        default:
     }
     return state
-
 }
 
 export default ToDoReducer

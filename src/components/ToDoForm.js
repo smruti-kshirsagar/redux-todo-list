@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from "react-redux"
-import addToDo from '../redux/action/ToDoAction'
+import {addToDo} from '../redux/action/ToDoAction'
 
 class ToDoForm extends React.Component {
     constructor(props) {

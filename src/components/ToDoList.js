@@ -1,13 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import ToDoItem from './ToDoItem'
 
 class ToDoList extends React.Component {
     render() {
         return (
             <div>
             {
-                this.props.todos.map((item,i) => (
-                    <li key ={i}>{item.text}</li>
+                this.props.todos && this.props.todos.map((item,i) => (
+                    <ToDoItem key={i} {...item} />
                 ))
             }
             </div>
